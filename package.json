@@ -1,0 +1,17 @@
+{
+    "name": "countdowntimer",
+    "version": "1.0.0",
+    "description": "Made to increase the timer based on donations via Twitch or Streamlabs tips",
+    "main": "start.js",
+    "scripts": {
+        "start": "node -r dotenv/config ./src/streamlabsSocket.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "v1p3r_hax",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^16.0.0",
+        "socket.io": "^4.4.1",
+        "socket.io-client": "^2.4.0"
+    }
+}
