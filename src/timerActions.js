@@ -2,7 +2,7 @@
 
 //Timer base time
 
-//Sebsocket to server/sockets
+//Websocket to server/sockets
 
 //Add to timer based on specific ammounts delared in config
 

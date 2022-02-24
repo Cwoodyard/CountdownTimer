@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Countdown Timer v0.0.1</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="./test.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // const body = document.querySelector('.body');
+    // const tab1 = document.querySelector('#tab1');
+    // const tab2 = document.querySelector('#tab2');
+    // const tab3 = document.querySelector('#tab3');
+
+    // document.getElementById('tab1').onclick = function() {
+    //         document.getElementById('body').innerHTML = 'Hey There';
+    //     }
+    $(document).ready(function () {
+      main();
+    });
+    function ovrSettings(){
+      $('#root').load("src/pages/ovrSettings.html");
+    }
+    function main(){
+      $('#root').load("src/pages/default.html");
+    }
+    function accSettings(){
+      $('#root').load("src/pages/accSettings.html");
+    }
+  </script>
+
+</head>
+
+
+<body>
+
+<div>
+  <nav>
+    <div class="nav-wrapper purple">
+      <a class="brand-logo center black-text">Countdown Timer</a>
+
+    </div>
+  </nav>
+  <nav>
+    <div class="nav-bar">
+      <ul class="tabs z-depth-1">
+        <li id="tab1" class="tab s3" onclick="ovrSettings()"><a>Overlay Settings</a></li>
+        <li id="tab2" class="tab s3 z-depth-2" onclick="main()"><a class="#test2 default active">00:00:00</a></li>
+        <li id="tab3" class="tab s3"onclick="accSettings()"><a>Account Settings</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+</body>
+<body>
+  <div id="root">
+
+  </div>
+</body>
+
+</html>
