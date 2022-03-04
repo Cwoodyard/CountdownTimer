@@ -20,6 +20,11 @@ const store = new Store({
     }
 });
 
+//Load the remote server/browser source server
+const { fork } = require('child_process')
+const ps = fork(`${__dirname}/public/server.js`)
+
+
 // Listen for app to be ready
 app.on('ready', function() {
     // Get our saved width and Height 
@@ -50,6 +55,7 @@ app.on('ready', function() {
     }));
     // Quit app when closed
     mainWindow.on('closed', function() {
+        ps.kill('SIGTERM');
         app.quit();
     });
 
@@ -68,6 +74,7 @@ const mainMenuTemplate = [
             label: 'Quit',
             accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+Q',
             click() {
+                ps.kill('SIGTERM');
                 app.quit();
             }
         }]

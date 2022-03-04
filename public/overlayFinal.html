@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        socket.on('updateTimer', function (msg) {
+            var timer = document.getElementById('timer');
+            timer.innerHTML = msg;
+        });
+    </script>
+</head>
+
+<body>
+    <!-- 
+        Include Main timer
+        On addition of time, fade counter and overlap with 'Name' has increased timer by 'time added' then fade back to timer
+        
+    -->
+    <h1 background-color: white>Browser Source Active!</h1>
+    <div id="timer">
+        <p id="hour">00</p>
+        <p> : </p>
+        <p id="minute">00</p>
+        <p> : </p>
+        <p id="second">00</p>
+    </div>
+</body>

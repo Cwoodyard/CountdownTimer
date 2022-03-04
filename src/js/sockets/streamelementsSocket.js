@@ -3,6 +3,7 @@ const io = require('socket.io-client');
 const streamElements = io(`https://realtime.streamelements.com`, {
     transports: ['websocket']
 });
+const timer = io('http://localhost:3000');
 
 // The JWT key from https://streamelements.com/dashboard/account/channels
 console.log(process.env.STREAMELEMENTS_SOCKET_API);
@@ -22,15 +23,34 @@ streamElements.on('event:test', (data) => {
 
     console.log(data);
     // Structure as on https://github.com/StreamElements/widgets/blob/master/CustomCode.md#on-event
-    console.log ("Cleaned: \n" + data.event.type);
+    console.log("Cleaned: \n" + data.event.type);
 
 });
 
 streamElements.on('event', (data) => {
 
+    switch (data) {
+        case (data.listener.subscriber - latest):
+
+
+            break;
+        case (data.listener.tip-latest):
+
+
+            break;
+        case (data.listener.cheer - latest):
+
+
+            break;
+        default:
+            console.log('Ignored: ' + data);
+            break;
+    }
+
+
     console.log(data);
     // Structure as on https://github.com/StreamElements/widgets/blob/master/CustomCode.md#on-event
-    console.log ("Cleaned: \n" + data.event.type);
+    console.log("Cleaned: \n" + data.event.type);
 
 
 });
@@ -54,7 +74,10 @@ function onConnect() {
     console.log('Successfully connected to the websocket');
 
     // streamElements.emit('authenticate', {method: 'oauth2',token: accessToken});
-    streamElements.emit('authenticate', {method: 'jwt', token: process.env.STREAMELEMENTS_SOCKET_API});
+    streamElements.emit('authenticate', {
+        method: 'jwt',
+        token: process.env.STREAMELEMENTS_SOCKET_API
+    });
 
 }
 
